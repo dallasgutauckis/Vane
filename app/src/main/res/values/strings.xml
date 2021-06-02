@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Vane</string>
+    <string name="welcome_format">Welcome back, %1$s</string>
+</resources>
