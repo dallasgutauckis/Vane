@@ -1,6 +1,5 @@
 import com.google.protobuf.gradle.generateProtoTasks
 import com.google.protobuf.gradle.protoc
-import org.jetbrains.kotlin.compiler.plugin.parsePluginOption
 
 plugins {
     id("com.android.application")
@@ -17,6 +16,7 @@ dependencies {
     implementation(Deps.Compose.material)
     implementation(Deps.Compose.tooling)
     implementation(Deps.Compose.ui)
+
     implementation(Deps.activityCompose)
     implementation(Deps.appCompat)
     implementation(Deps.kotlinExtensions)
@@ -25,7 +25,18 @@ dependencies {
     implementation(Deps.oolong)
     implementation(Deps.datastore)
     implementation(Deps.protobuf)
+    implementation(Deps.appAuth)
 
+    implementation(Deps.Moshi.codegen)
+    kapt(Deps.Moshi.codegen)
+
+    implementation(Deps.Arrow.core)
+
+    implementation(Deps.Okhttp.okhttp)
+    implementation(Deps.Okhttp.loggingInterceptor)
+
+    implementation(Deps.Retrofit.retrofit)
+    implementation(Deps.Retrofit.moshiConverter)
 
     implementation(Deps.Dagger.android)
     implementation(Deps.Dagger.androidSupport)
@@ -82,13 +93,21 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
         useIR = true
+        freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
     }
 
     buildFeatures {
         compose = true
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion = Deps.Compose.version
+    }
+
+    packagingOptions {
+        resources {
+            excludes.addAll(listOf("META-INF/**"))
+        }
     }
 }
 

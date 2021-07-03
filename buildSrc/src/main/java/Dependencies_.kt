@@ -14,6 +14,30 @@ object Deps {
     const val material = "com.google.android.material:material:1.3.0"
     const val datastore = "androidx.datastore:datastore:1.0.0-beta01"
     const val protobuf = "com.google.protobuf:protobuf-javalite:3.11.0"
+    const val appAuth = "net.openid:appauth:0.8.1"
+
+    object Moshi {
+        const val version = "1.12.0"
+        const val moshi = "com.squareup.moshi:moshi:$version"
+        const val codegen = "com.squareup.moshi:moshi-kotlin-codegen:$version"
+    }
+
+    object Okhttp {
+        const val version = "4.9.0"
+        const val okhttp = "com.squareup.okhttp3:okhttp:$version"
+        const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$version"
+    }
+
+    object Retrofit {
+        const val version = "2.9.0"
+        const val retrofit = "com.squareup.retrofit2:retrofit:$version"
+        const val moshiConverter = "com.squareup.retrofit2:converter-moshi:$version"
+    }
+
+    object Arrow {
+        const val version = "0.13.2"
+        const val core = "io.arrow-kt:arrow-core:$version"
+    }
 
     object Compose {
         const val version = "1.0.0-beta07"

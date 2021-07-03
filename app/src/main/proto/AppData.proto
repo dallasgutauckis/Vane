@@ -4,13 +4,19 @@ option java_package = "com.dallasgutauckis.vane";
 option java_multiple_files = true;
 
 message AppData {
-    repeated Profile profiles = 1;
+    Profile profile = 1;
+    TwitchData twitch_data = 2;
 }
 
 message Profile {
     Person person = 1;
 
     repeated Location locations = 2;
+}
+
+message TwitchData {
+    string token = 1;
+    repeated string channels = 2;
 }
 
 message Location {
